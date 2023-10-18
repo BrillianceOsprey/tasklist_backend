@@ -52,7 +52,7 @@ class TaskList extends Equatable {
 }
 
 /// list repository calss for taskList
-class ListRepositoty {
+class TaskListRepositoty {
   /// check the internal data sorce for list wiht given id
   Future<TaskList?> listById(String id) async {
     return listDb[id];

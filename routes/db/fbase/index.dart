@@ -20,19 +20,33 @@ Future<Response> _getLists(RequestContext context) async {
     }
   });
 
-  return Response.json(body: lists.toString());
+  return Response.json(body: lists);
 }
 
 Future<Response> _createList(RequestContext context) async {
   final body = await context.request.json() as Map<String, dynamic>;
   final name = body['name'] as String?;
+  final description = body['description'] as String?;
+  final status = body['status'] as String?;
+  final listId = body['listId'] as String?;
 
-  final list = <String, dynamic>{'name': name};
+  final list = <String, dynamic>{
+    'name': name,
+    'description': description,
+    'status': status,
+    'listId': listId,
+  };
 
   final id =
       await Firestore.instance.collection('tasklists').add(list).then((doc) {
     return doc.id;
   });
 
-  return Response.json(body: {'id': id});
+  return Response.json(body: {
+    'id': id,
+    'name': name,
+    'description': description,
+    'status': status,
+    'listId': id,
+  });
 }

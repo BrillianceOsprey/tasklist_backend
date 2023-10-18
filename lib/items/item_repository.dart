@@ -28,12 +28,13 @@ class TaskItem extends Equatable {
       _$TaskItemFromJson(json);
 
   /// copyWith method
-  TaskItem copyWith(
-      {String? id,
-      String? listid,
-      String? name,
-      String? description,
-      bool? status}) {
+  TaskItem copyWith({
+    String? id,
+    String? listid,
+    String? name,
+    String? description,
+    bool? status,
+  }) {
     return TaskItem(
       id: id ?? this.id,
       listid: listid ?? this.listid,
@@ -111,11 +112,12 @@ class TaskItemRepository {
 
     /// create our new TaskiTEM object and pass ALL THE parameters
     final item = TaskItem(
-        id: id,
-        name: name,
-        listid: listid,
-        description: description,
-        status: status);
+      id: id,
+      name: name,
+      listid: listid,
+      description: description,
+      status: status,
+    );
 
     /// add a new Tasklist object to our data source
     itemtDb[id] = item;
@@ -143,10 +145,11 @@ class TaskItemRepository {
     }
 
     itemtDb[id] = TaskItem(
-        id: id,
-        name: name,
-        listid: listid,
-        description: description,
-        status: status);
+      id: id,
+      name: name,
+      listid: listid,
+      description: description,
+      status: status,
+    );
   }
 }
