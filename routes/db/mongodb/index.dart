@@ -14,7 +14,7 @@ Future<Response> onRequest(RequestContext context) async {
 
 Future<Response> _getLists(RequestContext context) async {
   final lists = await context.read<Db>().collection('lists').find().toList();
-  return Response.json(body: lists.toString());
+  return Response.json(body: lists);
 }
 
 Future<Response> _createList(RequestContext context) async {

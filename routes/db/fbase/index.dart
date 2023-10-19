@@ -42,11 +42,13 @@ Future<Response> _createList(RequestContext context) async {
     return doc.id;
   });
 
-  return Response.json(body: {
-    'id': id,
-    'name': name,
-    'description': description,
-    'status': status,
-    'listId': id,
-  });
+  return Response.json(
+    body: {
+      'id': id,
+      'name': name,
+      'description': description,
+      'status': status,
+      'listId': id,
+    },
+  );
 }
