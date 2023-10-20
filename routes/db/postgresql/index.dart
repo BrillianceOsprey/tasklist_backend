@@ -21,7 +21,7 @@ Future<Response> _getLists(RequestContext context) async {
     lists.add({'id': row[0], 'name': row[1]});
   }
 
-  return Response.json(body: lists.toString());
+  return Response.json(body: lists);
 }
 
 Future<Response> _createList(RequestContext context) async {
