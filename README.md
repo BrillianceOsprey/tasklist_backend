@@ -32,3 +32,8 @@ $ dart_frog new route "authentication/bearer"
 # etc..
 $ dart_frog new route "authentication/bearer[id]"
 ```
+
+## Running commands 🧪
+To run dart_forg server
+```sh
+# dart_frog dev
