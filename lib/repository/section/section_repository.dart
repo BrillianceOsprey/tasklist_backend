@@ -38,10 +38,11 @@ class SessionRepository {
   /// Create session
   Session createSession(String userId) {
     final session = Session(
-        token: generateToken(userId),
-        userId: userId,
-        expiryDate: DateTime.now().add(const Duration(hours: 24)),
-        createdAt: DateTime.now());
+      token: generateToken(userId),
+      userId: userId,
+      expiryDate: DateTime.now().add(const Duration(hours: 24)),
+      createdAt: DateTime.now(),
+    );
 
     sessionDb[session.token] = session;
     return session;

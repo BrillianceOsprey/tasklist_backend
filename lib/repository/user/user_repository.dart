@@ -56,10 +56,11 @@ class UserRepository {
   }
 
   /// Creates a new user
-  Future<String> createUser(
-      {required String name,
-      required String username,
-      required String password}) {
+  Future<String> createUser({
+    required String name,
+    required String username,
+    required String password,
+  }) {
     final id = username.hashValue;
 
     final user = User(

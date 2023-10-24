@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dart_frog/dart_frog.dart';
 import 'package:redis/redis.dart';
 
@@ -11,16 +13,16 @@ Handler middleware(Handler handler) {
       final command = await conn.connect('localhost', 6379);
 
       try {
-        print("try");
+        print('try');
         await command.send_object(
           ['AUTH', 'default', 'X3tfQSHnltsa-yx8badihKv1tU2in9OV'],
         );
-        print("try 2");
+        print('try 2');
 
         response =
             await handler.use(provider<Command>((_) => command)).call(context);
       } catch (e) {
-        print("try 3");
+        print('try 3');
 
         response =
             Response.json(body: {'success': false, 'message': e.toString()});
@@ -28,7 +30,7 @@ Handler middleware(Handler handler) {
     } catch (e) {
       response =
           Response.json(body: {'success': false, 'message': e.toString()});
-      print(e.toString());
+      print(e);
     }
 
     return response;
